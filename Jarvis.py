@@ -4,7 +4,7 @@ import speech_recognition as sr
 engine=pyttsx3.init()
 voices=engine.getProperty('voices')
 engine.setProperty('voice', voices[1].id)
-newVoiceRate=170
+newVoiceRate=180
 engine.setProperty('rate',newVoiceRate)
 def speak(audio):
     engine.say(audio)
@@ -59,6 +59,7 @@ takecommand()
 if __name__=="__main__":
     wishme()
     takecommand()
+
 
 
 
