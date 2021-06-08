@@ -37,7 +37,6 @@ def wishme():
         speak("Good Night Sir!")   
 
     speak("I am at your service. How may i help you?")               
-wishme()
 
 def takecommand():
     r=sr.Recognizer()
@@ -55,7 +54,6 @@ def takecommand():
         speak("Please repeat that one more time...")
         return"None"
     return query
-takecommand()
 if __name__=="__main__":
     wishme()
     takecommand()
