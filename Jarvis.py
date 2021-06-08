@@ -1,11 +1,13 @@
 import pyttsx3
 import datetime
 import speech_recognition as sr
+
 engine=pyttsx3.init()
 voices=engine.getProperty('voices')
 engine.setProperty('voice', voices[1].id)
 newVoiceRate=180
 engine.setProperty('rate',newVoiceRate)
+
 def speak(audio):
     engine.say(audio)
     engine.runAndWait()
@@ -37,7 +39,6 @@ def wishme():
         speak("Good Night Sir!")   
 
     speak("I am at your service. How may i help you?")               
-
 def takecommand():
     r=sr.Recognizer()
     with sr.Microphone() as source:
@@ -54,7 +55,6 @@ def takecommand():
         speak("Please repeat that one more time...")
         return"None"
     return query
-takecommand()
 if __name__=="__main__":
     wishme()
     takecommand()
