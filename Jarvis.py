@@ -12,20 +12,20 @@ def speak(audio):
     engine.say(audio)
     engine.runAndWait()
 
-#def wishme():
-#    speak("Welcome master!")
-#    speak("This is Tokyo your AI assistant")
-#    # speak("Today's date is")
-#    
-#    # year=int(datetime.datetime.now().year)
-#    # month=int(datetime.datetime.now().month)
-#    # date=int(datetime.datetime.now().day)
-#    # speak(date)
-#    # speak(month)
-#    # speak(year)
-#    # speak("The current time in my watch is")
-#
-#    # Time=datetime.datetime.now().strftime("%H:%M:%S")
+def wishme():
+    speak("Welcome master!")
+    speak("This is Tokyo your AI assistant")
+    # speak("Today's date is")
+    
+    # year=int(datetime.datetime.now().year)
+    # month=int(datetime.datetime.now().month)
+    # date=int(datetime.datetime.now().day)
+    # speak(date)
+    # speak(month)
+    # speak(year)
+    # speak("The current time in my watch is")
+    #
+    # Time=datetime.datetime.now().strftime("%H:%M:%S")
 #    # speak(Time)
 #    
 #    hour=int(datetime.datetime.now().hour)
@@ -60,7 +60,7 @@ if __name__=="__main__":
 #    wishme()
     
         query=takecommand().lower()
-        webbrowser = webbrowser.get('safari')
+        webbrowser = webbrowser.get('chrome')
         if "wikipedia" in query:
             speak("Searching Wikipedia...")
             query=query.replace("Wikipedia","")
