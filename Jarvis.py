@@ -58,7 +58,7 @@ def takecommand():
     return query
 if __name__=="__main__":
     wishme()
-    takecommand()
+    
     while True:
         query=takecommand().lower()
 
@@ -75,6 +75,7 @@ if __name__=="__main__":
 
         elif "open google" in query:
             webbrowser.open("google.com")
+
 
                 
 
