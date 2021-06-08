@@ -13,18 +13,18 @@ def speak(audio):
 def wishme():
     speak("Welcome master!")
     speak("This is Tokyo your AI assistant")
-    speak("Today's date is")
+    # speak("Today's date is")
     
-    year=int(datetime.datetime.now().year)
-    month=int(datetime.datetime.now().month)
-    date=int(datetime.datetime.now().day)
-    speak(date)
-    speak(month)
-    speak(year)
-    speak("The current time in my watch is")
+    # year=int(datetime.datetime.now().year)
+    # month=int(datetime.datetime.now().month)
+    # date=int(datetime.datetime.now().day)
+    # speak(date)
+    # speak(month)
+    # speak(year)
+    # speak("The current time in my watch is")
 
-    Time=datetime.datetime.now().strftime("%H:%M:%S")
-    speak(Time)
+    # Time=datetime.datetime.now().strftime("%H:%M:%S")
+    # speak(Time)
     
     hour=int(datetime.datetime.now().hour)
     if hour>=6 and hour<=12:
@@ -56,6 +56,9 @@ def takecommand():
         return"None"
     return query
 takecommand()
+if __name__=="__main__":
+    wishme()
+    takecommand()
 
 
 
