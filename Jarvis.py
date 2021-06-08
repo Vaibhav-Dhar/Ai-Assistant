@@ -25,9 +25,6 @@ def wishme():
     # speak(year)
     # speak("The current time in my watch is")
 
-    # Time=datetime.datetime.now().strftime("%H:%M:%S")
-    # speak(Time)
-    
     hour=int(datetime.datetime.now().hour)
     if hour>=6 and hour<=12:
         speak("Good Morning sir!")
@@ -76,6 +73,12 @@ if __name__=="__main__":
 
         elif "open google" in query:
             webbrowser.open("google.com")
+
+        elif 'the time' in query:
+            Time = datetime.datetime.now().strftime("%H:%M:%S")    
+            speak(Time)
+
+
 
 
                 
