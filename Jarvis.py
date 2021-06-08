@@ -3,6 +3,8 @@ import datetime
 import speech_recognition as sr
 import wikipedia
 import webbrowser
+import os
+import smtplib
 engine=pyttsx3.init()
 voices=engine.getProperty('voices')
 engine.setProperty('voice', voices[1].id)
@@ -47,12 +49,20 @@ def takecommand():
         print("Recognizing...")
         query=r.recognize_google(audio)
         print(query)
-        speak(query)
+        
     except Exception as e:
         print(e)
         speak("Please repeat that one more time...")
         return"None"
     return query
+
+def sendEmail(to, content):
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.ehlo()
+    server.starttls()
+    server.login('youremail@gmail.com', 'your-password')
+    server.sendmail('youremail@gmail.com', to, content)
+    server.close()    
     
 if __name__=="__main__":
     wishme()
@@ -77,6 +87,20 @@ if __name__=="__main__":
         elif 'the time' in query:
             Time = datetime.datetime.now().strftime("%H:%M:%S")    
             speak(Time)
+
+        elif 'play spotify' in query:
+            webbrowser.open("spotify.com")    
+
+        elif 'email to Vaibhav' in query:
+            try:
+                speak("What should I say?")
+                content = takecommand()
+                to = "vaibhavdhar01@gmail.com"    
+                sendEmail(to, content)
+                speak("Email has been sent!")
+            except Exception as e:
+                print(e)
+                speak("Sorry I am not able to send this email")        
 
 
 
