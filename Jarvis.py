@@ -1,3 +1,5 @@
+import subprocess
+import sys
 import pyttsx3
 import datetime
 import speech_recognition as sr
@@ -105,7 +107,7 @@ if __name__=="__main__":
             speak(Time)
 
         elif 'play spotify' in query:
-            webbrowser.open("spotify.com")    
+            os.system('open /Applications/Spotify.app')
 
         elif 'email to Vaibhav' in query:
             try:
