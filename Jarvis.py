@@ -51,6 +51,13 @@ def takecommand():
         speak("Please repeat that one more time...")
         return"None"
     return query
+
+def command():
+    command=['search wikipedia','open youtube', 'open google','open gmail','open github','open spotify','open instagram','take screenshot','remeber','cpu and battery percentage update','date','time','exit']
+    for i in command:
+        print(i)
+
+
 def screenshot():
     img = pyautogui.screenshot()
     img.save("C:\\Jarvis_img\\js.png")
@@ -142,6 +149,12 @@ if __name__=="__main__":
         elif "battery" in query:
             cpu()
         
+        elif "show commands" in query:
+            speak("Please see the above commands to use my services ")
+            print("Please see the above commands to use my services: ")
+            command()
+
+
         elif 'exit' in query:
             quit()
 
