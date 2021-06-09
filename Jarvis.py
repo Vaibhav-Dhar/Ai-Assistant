@@ -57,7 +57,6 @@ def command():
     for i in command:
         print(i)
 
-
 def screenshot():
     img = pyautogui.screenshot()
     img.save("C:\\Jarvis_img\\js.png")
@@ -150,10 +149,9 @@ if __name__=="__main__":
             cpu()
         
         elif "show commands" in query:
-            speak("Please see the above commands to use my services ")
-            print("Please see the above commands to use my services: ")
+            print("Please see the above commands to use my services ")
+            speak("Please see the above commands to use my services: ")
             command()
-
 
         elif 'exit' in query:
             quit()
