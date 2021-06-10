@@ -120,7 +120,6 @@ if __name__=="__main__":
             year=int(datetime.datetime.now().year)
             month=int(datetime.datetime.now().month)
             date=int(datetime.datetime.now().day)
-            print(" Today's date is ")
             speak("Today's date is...")
             speak(date)
             speak(month)
