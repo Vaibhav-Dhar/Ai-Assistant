@@ -54,10 +54,10 @@ def takecommand():
     return query
 
 def command():
-    command=[' *Search Wikipedia',' *Open Youtube',' *Play Youtube',' *Open Google',' *Open Gmail',' *Open Linkedin',' *Open Github',' *Open Spotify',' *Open Instagram',' *Take Screenshot',' *Remeber',' *Cpu and Battery update',' *Date',' *Time',' *Exit']
+    command=[' *Search Wikipedia',' *Song in Youtube',' *Open Youtube',' *Open Google',' *Open Gmail',' *Open Linkedin',' *Open Github',' *Open Spotify',' *Open Instagram',' *Take Screenshot',' *Remeber',' *Cpu and Battery update',' *Date',' *Time',' *Exit']
     for i in command:
         print(i)
-
+        
 def screenshot():
     img = pyautogui.screenshot()
     img.save("C:\\Jarvis_img\\js.png")
@@ -74,7 +74,7 @@ def cpu():
 
 if __name__=="__main__":
 
-#    wishme()
+    wishme()
     
     while True:
         query=takecommand().lower()
@@ -88,13 +88,12 @@ if __name__=="__main__":
             print(results)
             speak(results)
 
-<<<<<<< HEAD
         elif 'youtube' in query:
             
-            speak("What you want to do with youtube")
+            speak("What you want to play")
             query = takecommand().lower()            
-            if 'song' in query:
-                speak('Song name pls')
+            if 'song in youtube' in query:
+                speak('Song name please')
                 song_name = takecommand()
                 browser = webdriver.Chrome('chromedriver.exe')
                 browser.get('https://www.youtube.com')
@@ -102,22 +101,11 @@ if __name__=="__main__":
                 browser.find_element_by_xpath('//*[@id="search"]').send_keys(Keys.ENTER)
             
             if 'open youtube' in query:
+                speak("opening youtube")
                 browser = webdriver.Chrome('chromedriver.exe')
                 browser.get('https://www.youtube.com')
 
-=======
-        elif "open youtube" in query:
-            speak("opening Youtube")
-            browser = webdriver.Chrome('chromedriver.exe')
-            browser.get('https://www.youtube.com')
-
-
-        elif "Play Youtube" in query:
-            kit.playonyt("Best of KK")
-            speak("Playing Youtube")
-          
->>>>>>> 6d47592eb07298528673216defecba399221525a
-            
+       
         elif "open google" in query:
             speak("opening google")
             browser = webdriver.Chrome('chromedriver.exe')
@@ -130,13 +118,12 @@ if __name__=="__main__":
             browser.get('https://www.gmail.com')
 
 
-        elif "open Linkedin" in query:
+        elif "open linkedin" in query:
             speak("opening linkedin")
             browser = webdriver.Chrome('chromedriver.exe')
             browser.get('https://www.linkedin.com/in/vaibhav-dhar3321/')
 
             
-
         elif "open instagram" in query:
             speak("opening instagram")
             browser = webdriver.Chrome('chromedriver.exe')
