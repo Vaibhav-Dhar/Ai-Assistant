@@ -7,6 +7,7 @@ from selenium import webdriver
 import os
 import pyautogui
 import psutil
+import pywhatkit
 from selenium.webdriver.common.keys import Keys
 
 engine=pyttsx3.init()
@@ -53,7 +54,7 @@ def takecommand():
     return query
 
 def command():
-    command=[' *Search Wikipedia',' *Open Youtube', ' *Open Google',' *Open Gmail',' *Open Github',' *Open Spotify',' *Open Instagram',' *Take Screenshot',' *Remeber',' *Cpu and Battery update',' *Date',' *Time',' *Exit']
+    command=[' *Search Wikipedia',' *Open Youtube',' *Play Youtube',' *Open Google',' *Open Gmail',' *Open Github',' *Open Spotify',' *Open Instagram',' *Take Screenshot',' *Remeber',' *Cpu and Battery update',' *Date',' *Time',' *Exit']
     for i in command:
         print(i)
 
@@ -91,8 +92,12 @@ if __name__=="__main__":
             speak("opening youtube")
             browser = webdriver.Chrome('chromedriver.exe')
             browser.get('https://www.youtube.com')
-            
 
+
+        elif "Play Youtube" in query:
+            pywhatkit.playonyt("Best of KK")
+          
+            
         elif "open google" in query:
             speak("opening google")
             browser = webdriver.Chrome('chromedriver.exe')
