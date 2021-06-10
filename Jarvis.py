@@ -53,7 +53,7 @@ def takecommand():
     return query
 
 def command():
-    command=['search wikipedia','open youtube', 'open google','open gmail','open github','open spotify','open instagram','take screenshot','remeber','cpu and battery percentage update','date','time','exit']
+    command=['*Search Wikipedia','*Open Youtube', '*Open Google','*Open Gmail','*Open Github','*Open Spotify','*Open Instagram','*Take Screenshot','*Remeber','*Cpu and Battery update','*Date','*Time','*Exit']
     for i in command:
         print(i)
 
