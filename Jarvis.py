@@ -74,7 +74,7 @@ def cpu():
 
 if __name__=="__main__":
 
-    wishme()
+#    wishme()
     
     while True:
         query=takecommand().lower()
@@ -88,6 +88,24 @@ if __name__=="__main__":
             print(results)
             speak(results)
 
+<<<<<<< HEAD
+        elif 'youtube' in query:
+            
+            speak("What you want to do with youtube")
+            query = takecommand().lower()            
+            if 'song' in query:
+                speak('Song name pls')
+                song_name = takecommand()
+                browser = webdriver.Chrome('chromedriver.exe')
+                browser.get('https://www.youtube.com')
+                browser.find_element_by_xpath('//*[@id="search"]').send_keys(song_name)
+                browser.find_element_by_xpath('//*[@id="search"]').send_keys(Keys.ENTER)
+            
+            if 'open youtube' in query:
+                browser = webdriver.Chrome('chromedriver.exe')
+                browser.get('https://www.youtube.com')
+
+=======
         elif "open youtube" in query:
             speak("opening Youtube")
             browser = webdriver.Chrome('chromedriver.exe')
@@ -98,6 +116,7 @@ if __name__=="__main__":
             kit.playonyt("Best of KK")
             speak("Playing Youtube")
           
+>>>>>>> 6d47592eb07298528673216defecba399221525a
             
         elif "open google" in query:
             speak("opening google")
