@@ -48,12 +48,12 @@ def takecommand():
         
     except Exception as e:
         print(e)
-        speak("Please repeat that one more time...")
+        speak(" Please repeat that one more time...")
         return"None"
     return query
 
 def command():
-    command=['*Search Wikipedia','*Open Youtube', '*Open Google','*Open Gmail','*Open Github','*Open Spotify','*Open Instagram','*Take Screenshot','*Remeber','*Cpu and Battery update','*Date','*Time','*Exit']
+    command=[' *Search Wikipedia',' *Open Youtube', ' *Open Google',' *Open Gmail',' *Open Github',' *Open Spotify',' *Open Instagram',' *Take Screenshot',' *Remeber',' *Cpu and Battery update',' *Date',' *Time',' *Exit']
     for i in command:
         print(i)
 
@@ -68,6 +68,7 @@ def cpu():
     print(cpu)
     speak(f"You have used {cpu} of cpu")
     battery=psutil.sensors_battery().percent
+    print(battery)
     speak(f"You have used {battery} of battery")
 
 if __name__=="__main__":
@@ -79,7 +80,7 @@ if __name__=="__main__":
         webbrowser = wb
 
         if "wikipedia" in query:
-            speak("Searching Wikipedia...")
+            speak(" Searching Wikipedia...")
             query=query.replace("Wikipedia","")
             results=wikipedia.summary(query,sentences=3)
             speak("According to Wikipedia...")
@@ -87,37 +88,39 @@ if __name__=="__main__":
             speak(results)
 
         elif "open youtube" in query:
-            speak("opening youtube")
+            speak(" opening youtube")
             browser = webdriver.Chrome('chromedriver.exe')
             browser.get('https://www.youtube.com')
             
 
         elif "open google" in query:
-            speak("opening google")
+            speak(" opening google")
             browser = webdriver.Chrome('chromedriver.exe')
             browser.get('https://www.google.com')
             
         
         elif "open gmail" in query:
-            speak("opening gmail")
+            speak(" opening gmail")
             browser = webdriver.Chrome('chromedriver.exe')
             browser.get('https://www.gmail.com')
             
 
         elif "open instagram" in query:
-            speak("opening instagram")
+            speak(" opening instagram")
             browser = webdriver.Chrome('chromedriver.exe')
             browser.get('https://www.instagram.com')
             
 
         elif 'the time' in query:
-            Time = datetime.datetime.now().strftime("%H:%M:%S")    
+            Time = datetime.datetime.now().strftime("%H:%M:%S") 
+            print(Time)   
             speak(Time)
 
         elif 'date today' in query:
             year=int(datetime.datetime.now().year)
             month=int(datetime.datetime.now().month)
             date=int(datetime.datetime.now().day)
+            print(" Today's date is ")
             speak("Today's date is...")
             speak(date)
             speak(month)
@@ -149,7 +152,7 @@ if __name__=="__main__":
             cpu()
         
         elif "show commands" in query:
-            print("Please see the above commands to use my services ")
+            print(" Please see the above commands to use my services: ")
             speak("Please see the above commands to use my services: ")
             command()
 
