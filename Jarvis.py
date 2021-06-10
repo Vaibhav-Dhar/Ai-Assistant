@@ -70,7 +70,7 @@ def cpu():
     speak(f"You have used {cpu} of cpu")
     battery=psutil.sensors_battery().percent
     print(battery)
-    speak(f"You have used {battery} of battery")
+    speak(f"Your current battery in the system is {battery}")
 
 if __name__=="__main__":
 
@@ -89,12 +89,13 @@ if __name__=="__main__":
             speak(results)
 
         elif "open youtube" in query:
-            speak("opening youtube")
+            speak("opening Youtube")
             browser = webdriver.Chrome('chromedriver.exe')
             browser.get('https://www.youtube.com')
 
 
         elif "Play Youtube" in query:
+            speak("Playing Youtube")
             pywhatkit.playonyt("Best of KK")
           
             
