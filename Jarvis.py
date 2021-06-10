@@ -54,7 +54,7 @@ def takecommand():
     return query
 
 def command():
-    command=[' *Search Wikipedia',' *Youtube',' *Open Youtube',' *Open Google',' *Open Gmail',' *Open Linkedin',' *Open Github',' *Open Spotify',' *Open Instagram',' *Take Screenshot',' *Remeber',' *Cpu and Battery update',' *Date',' *Time',' *Exit']
+    command=[' *Search Wikipedia',' *Play something',' *Open Youtube',' *Open Google',' *Open Gmail',' *Open Linkedin',' *Open Github',' *Open Spotify',' *Open Instagram',' *Take Screenshot',' *Remeber',' *Cpu and Battery update',' *Date',' *Time',' *Exit']
     for i in command:
         print(i)
         
@@ -88,7 +88,7 @@ if __name__=="__main__":
             print(results)
             speak(results)
 
-        elif 'youtube' in query:
+        elif 'play something' in query:
             
             speak("What you want to play")
             query = takecommand().lower()            
