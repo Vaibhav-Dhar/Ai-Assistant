@@ -48,7 +48,7 @@ def takecommand():
         
     except Exception as e:
         print(e)
-        speak(" Please repeat that one more time...")
+        speak("Please repeat that one more time...")
         return"None"
     return query
 
@@ -80,7 +80,7 @@ if __name__=="__main__":
         webbrowser = wb
 
         if "wikipedia" in query:
-            speak(" Searching Wikipedia...")
+            speak("Searching Wikipedia...")
             query=query.replace("Wikipedia","")
             results=wikipedia.summary(query,sentences=3)
             speak("According to Wikipedia...")
@@ -88,25 +88,25 @@ if __name__=="__main__":
             speak(results)
 
         elif "open youtube" in query:
-            speak(" opening youtube")
+            speak("opening youtube")
             browser = webdriver.Chrome('chromedriver.exe')
             browser.get('https://www.youtube.com')
             
 
         elif "open google" in query:
-            speak(" opening google")
+            speak("opening google")
             browser = webdriver.Chrome('chromedriver.exe')
             browser.get('https://www.google.com')
             
         
         elif "open gmail" in query:
-            speak(" opening gmail")
+            speak("opening gmail")
             browser = webdriver.Chrome('chromedriver.exe')
             browser.get('https://www.gmail.com')
             
 
         elif "open instagram" in query:
-            speak(" opening instagram")
+            speak("opening instagram")
             browser = webdriver.Chrome('chromedriver.exe')
             browser.get('https://www.instagram.com')
             
