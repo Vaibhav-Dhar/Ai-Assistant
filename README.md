@@ -1,4 +1,5 @@
 # Ai-assistant
 
-|ai|assistant|
+|ai | assistant|
+|---| --- |
 |hello|hello|
