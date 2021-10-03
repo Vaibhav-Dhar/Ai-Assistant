@@ -8,3 +8,5 @@ try:
     os.system('pip install pyautogui')
     os.system('pip install ')
     os.system('pip install pyttsx3')
+except Exception as E:
+    pass
