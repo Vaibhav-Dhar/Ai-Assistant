@@ -5,11 +5,13 @@ import wikipedia
 import webbrowser as wb
 from selenium import webdriver
 import os
+import subprocess
+
 import pyautogui
 import psutil
 import pywhatkit as kit
 from selenium.webdriver.common.keys import Keys
-
+import cv2
 engine=pyttsx3.init()
 voices=engine.getProperty('voices')
 engine.setProperty('voice', voices[1].id)
@@ -72,6 +74,64 @@ def cpu():
     print(battery)
     speak(f"Your current battery in the system is {battery}")
 
+def RockPaperScissors():
+
+    # create a list of play options
+    t = ["Rock", "Paper", "Scissors"]
+
+    # assign a random play to the computer
+    computer = t[randint(0, 2)]
+
+    # set player to False
+    player = False
+
+    while player == False:
+        # set player to True
+        speak("Choose rock, paper or scissors")
+        playerChoice = takecommand()
+        if 'rock' in playerChoice:
+            player = "Rock"
+
+        elif 'paper' in playerChoice:
+            player = "Paper"
+
+        elif 'scissors' in playerChoice:
+            player = "Scissors"
+
+        else:
+            speak("That's not a valid play. Check your spelling!")
+
+        if player == computer:
+            speak("It's a tie, you chose" + player + "and Computer chose" + computer)
+
+        elif player == "Rock":
+            if computer == "Paper":
+                speak("You lose!" + computer + "covers" + player)
+            else:
+                speak("You win!" + player + "smashes" + computer)
+        elif player == "Paper":
+            if computer == "Scissors":
+                speak("You lose!" + computer + computer + "cut" + player)
+            else:
+                speak("You win!" + player + "covers" + computer)
+        elif player == "Scissors":
+            if computer == "Rock":
+                speak("You lose..." + computer + "smashes" + player)
+            else:
+                speak("You win!" + player + "cut" + computer)
+
+        # player was set to True, but we want it to be False so the loop continues
+        speak("Do you wanna play again")
+        ChoicePlayAgain = takecommand()
+        if 'yes' in ChoicePlayAgain or 'ya' in ChoicePlayAgain:
+            ChoicePlayAgain = False
+
+        else:
+            ChoicePlayAgain = True
+            speak("Exited Rock Paper scissors")
+        player = ChoicePlayAgain
+        computer = t[randint(0, 2)]
+
 if __name__=="__main__":
 
     wishme()
@@ -105,12 +165,45 @@ if __name__=="__main__":
                 browser = webdriver.Chrome('chromedriver.exe')
                 browser.get('https://www.youtube.com')
 
-       
+        elif 'ip address' in query:
+            ip = get('https://api.ipify.org').text
+            speak(f"Your IP Address is {ip}")
+
+
+        elif 'set an alarm' in query:
+            speak("Enter The Time")
+            alarm_time = input("Enter the Time:")
+            speak("Alarm Set for " + alarm_time)
+            while True:
+                Time_AC = datetime.datetime.now()
+                now = Time_AC.strftime("%H:%M:%S")
+
+                if now == alarm_time:
+                    speak("Alarm Over")
+                    playsound('alarm.mp3')
+
+                elif now > alarm_time:
+                    break
+
         elif "open google" in query:
             speak("opening google")
             browser = webdriver.Chrome('chromedriver.exe')
             browser.get('https://www.google.com')
-            
+        
+
+        elif "shutdown system" in query:
+            speak("Shutting down system")
+            os.system("shutdown /s /t 5")
+
+        elif "restart system" in query:
+            speak("Restarting system")
+            os.system("shutdown /r /t 5")
+
+        elif "sleep" in query and 'system' in query:
+            speak("Going to sleep")
+            os.system("rundll32.exe powrprof.dll , SetSuspendState 0,1,0")
+
+
         
         elif "open gmail" in query:
             speak("opening gmail")
@@ -128,7 +221,27 @@ if __name__=="__main__":
             speak("opening instagram")
             browser = webdriver.Chrome('chromedriver.exe')
             browser.get('https://www.instagram.com')
-            
+        
+        elif "capture" in query or "photo" in query or "pic" in query or 'picture' in query:
+            speak("Press 'P' to take a photo, esc to exit")
+            cam = cv2.VideoCapture(0)
+            while True:
+                _, frame = cam.read()  # We don't want ret in this
+                cv2.imshow("Image Preview", frame)  # Show the current frame
+                key = cv2.waitKey(1)
+                if key == 27:  # If you press Esc then the frame window will close (and the program also)
+                    speak("Exited Photo window")
+                    break
+                elif key == ord('p'):  # If you press p/P key on your keyboard
+                    cv2.imwrite("pic.png",
+                                frame)  # Save current frame as picture with name pic.jpg
+                    time.sleep(0.7)
+                    speak("Opening your picture now")
+                    os.startfile("pic.png")
+
+            cam.release()
+            cv2.destroyAllWindows()
+
 
         elif 'the time' in query:
             Time = datetime.datetime.now().strftime("%H:%M:%S") 
@@ -142,7 +255,11 @@ if __name__=="__main__":
             speak("Today's date is...")
             speak(date)
             speak(month)
-            speak(year)    
+            speak(year) 
+
+        elif 'play' in query and ('rock' in query or 'paper' in query or 'scissors' in query):
+            RockPaperScissors()
+
 
         elif 'open github' in query:
             codePath="C:\\Users\\Vaibhav Dhar\\AppData\\Local\\GitHubDesktop\\GitHubDesktop.exe"
