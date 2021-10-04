@@ -1,5 +1,5 @@
 # Ai-assistant
-### A Simple Python Speech-To-Work program. This program will recognise your voice and perform the specific tasks.
+### A Simple Python Speech-To-Work program. This program will recognise and analyze your voice and perform the specific tasks.
 
 #### Tasks it can perform:
 - Search Wikipedia
